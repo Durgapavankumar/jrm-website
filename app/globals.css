@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: #030711;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(61, 214, 208, 0.12), transparent 55%),
+    radial-gradient(circle at 80% 0, rgba(157, 123, 255, 0.18), transparent 45%),
+    linear-gradient(135deg, #020714 0%, #061936 40%, #081f42 70%, #0a274f 100%);
+  color: #0b1f3a;
+  min-height: 100vh;
+}
+
+.prose p {
+  @apply text-gray-700;
+}
+
+@layer components {
+  .soft-card {
+    @apply rounded-3xl border border-white/60 bg-white/80 shadow-[0_10px_40px_rgba(15,23,42,0.08)] backdrop-blur;
+  }
+
+  .glass-panel {
+    @apply rounded-[32px] border border-white/30 bg-white/10 backdrop-blur-xl shadow-glow;
+  }
+}
