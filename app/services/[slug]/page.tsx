@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { services } from "@/content/services";
 import { site } from "@/content/siteConfig";
 
+type ServiceSlug = (typeof services)[number]["slug"];
 const serviceMap = new Map(services.map((service) => [service.slug, service]));
 
 export async function generateStaticParams() {
@@ -13,7 +14,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: { slug: ServiceSlug };
 }): Promise<Metadata> {
   const service = serviceMap.get(params.slug);
   if (!service) {
@@ -38,7 +39,7 @@ export async function generateMetadata({
 export default function ServiceDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: { slug: ServiceSlug };
 }) {
   const service = serviceMap.get(params.slug);
   if (!service) notFound();
@@ -99,7 +100,13 @@ export default function ServiceDetailPage({
   );
 }
 
-function DetailCard({ title, items }: { title: string; items: string[] }) {
+function DetailCard({
+  title,
+  items,
+}: {
+  title: string;
+  items: readonly string[];
+}) {
   return (
     <div className="rounded-3xl border border-white/20 bg-white/10 p-6 text-white shadow-glow">
       <h3 className="text-lg font-semibold">{title}</h3>

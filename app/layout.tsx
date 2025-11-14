@@ -1,19 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
 import { site } from "@/content/siteConfig";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-
-const display = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-display",
-});
-
-const body = Inter({
-  subsets: ["latin"],
-  variable: "--font-body",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -55,9 +44,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${display.variable} ${body.variable} font-body min-h-screen flex flex-col text-night bg-night`}
-      >
+      <body className="font-body min-h-screen flex flex-col text-night bg-night">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

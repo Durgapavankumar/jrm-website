@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
@@ -12,6 +14,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  basePath: isProd ? "/jrm-website" : undefined,
+  assetPrefix: isProd ? "/jrm-website" : undefined,
+  trailingSlash: true,
 };
 
 export default nextConfig;

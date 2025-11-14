@@ -4,7 +4,7 @@ export const site = {
   name: "JRM Consulting LLC",
   shortName: "JRM Consulting LLC",
   legalName: "JRM Consulting LLC",
-  url: "https://www.example.com", // replace with your live domain when ready
+  url: "https://durgapavankumar.github.io/jrm-website",
   tagline:
     "Logistics & transportation technology consulting to drive efficiency and profit.",
 
